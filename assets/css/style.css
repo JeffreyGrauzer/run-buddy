@@ -13,6 +13,14 @@ body {
 /* HEADER / NAV BAR STYLES START */
 
 header {
+  background-attachment: fixed;
+  background-position: 80%;
+  background-image: url('../images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   padding: 20px 35px;
   background-color: #39a6b2;
   display: flex;
@@ -21,6 +29,7 @@ header {
 }
 
 header h1 {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   font-weight: bold;
   margin: 0;
   font-size: 36px;
@@ -45,9 +54,17 @@ header nav ul {
 }
 
 header nav ul li a {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   padding: 10px 15px;
   font-weight: lighter;
   font-size: 1.55vw;
+}
+
+header nav ul li a:hover {
+  background: #fce138;
+  color: #024e76;
+  border-radius: 15px;
+  text-shadow: none;
 }
 
 /* HEADER / NAVBAR STYLES END */
@@ -87,13 +104,15 @@ section {
 
 /* HERO STYLES START */
 .hero {
-  align-items: flex-start;
   background-image: url('../images/hero-bg.jpg');
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
+  background-position: 80%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .hero-cta {
@@ -106,14 +125,17 @@ section {
 }
 
 .hero-cta h2 {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   font-style: italic;
   font-size: 55px;
   color: #fce138;
 }
 
 .hero-form {
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border: 3px solid #024e76;
-  background-color: #fce138;
+  background-color: rgba(252, 225, 56, 0.8);
   padding: 20px;
   color: #024e76;
   width: 40%;
@@ -129,6 +151,8 @@ section {
 }
 
 .form-input {
+  background-color: rgba(255,255,255, 0.75);
+  border-radius: 10px;
   border: 1px solid #024e76;
   display: block;
   padding: 7px 15px;
@@ -138,17 +162,27 @@ section {
   margin-bottom: 15px; 
 }
 
+.form-input:focus {
+  background-color: rgba(255,255,255, 1);
+  outline: none;
+}
+
 .hero-form label {
   margin: 0 5px;
 }
 
 .hero-form button {
+  border-radius: 10px;
   color: #fce138;
   background-color: #024e76;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
 } 
+
+.hero-form button:hover {
+  background-color: #39a6b2;
+}
 /* HERO STYLES END */
 
 
@@ -194,11 +228,14 @@ section {
   margin: 50px auto;
   padding-bottom: 50px;
   width: 80%;
-  border-bottom: 1px solid #39a6b2;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+}
+
+.step:not(:last-child) {
+  border-bottom: 1px solid #39a6b2;
 }
 
 .step h3 {
@@ -321,6 +358,8 @@ section {
 }
 
 .contact-form input, .contact-form textarea {
+  background-color: rgba(255,255,255, 0.75);
+  border-radius: 10px;
   border: 1px solid #024e76;
   display: block;
   padding: 7px 15px;
@@ -331,7 +370,13 @@ section {
   margin-top: 5px;
 }
 
+.contact-form input:focus, .contact-form textarea:focus {
+  background-color: rgba(255,255,255, 1);
+  outline: none;
+}
+
 .contact-form button {
+  border-radius: 10px;
   width: 100%;
   border: none;
   background: #fce138;
@@ -339,6 +384,11 @@ section {
   text-align: center;
   padding: 15px 0;
   font-size: 16px;
+}
+
+.contact-form button:hover {
+  color: #fce138;
+  background: #39a6b2;
 }
 
 .contact-info a {
@@ -364,6 +414,7 @@ section {
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 @media screen and (max-width: 980px) {
   header {
+    position: relative;
     padding-bottom: 0;
     justify-content: center;
   }
@@ -380,7 +431,7 @@ section {
   }
 
   header nav ul li a {
-    font-size: 20px;
+   font-size: 20px;
   }
 
   footer h2, footer div {
@@ -391,7 +442,7 @@ section {
   .hero-cta, .hero-form {
     width: 100%;
   }
-
+  
   .hero-cta {
     text-align: center;
   }
@@ -399,22 +450,17 @@ section {
   .section-title {
     width: 80%;
   }
-
+  
   .trainer {
     flex: 0 70%;
   }
-
+  
   .contact-info iframe{
     flex: 1 100%;
   }
 }
-  
-    /* this will be applied on any screen smaller than 980px */
-    
-  
 
-
-/* MEDIA QUERY FOR TABLETS AND SMALLER*/
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
 @media screen and (max-width: 768px) {
   section {
     padding: 30px 15px;
@@ -439,13 +485,8 @@ section {
   }
 
   .step-text {
-    flex: 100%;
+    flex: 100%;  
   }
-
-}
-    /* this will be applied on any screen between 768px and 575 px */
-   
-  
 }
 
 /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
@@ -455,7 +496,7 @@ section {
   }
 
   .section-title {
-    width: 95;
+    width: 95%;
   }
 
   .intro p {
@@ -477,10 +518,4 @@ section {
   .contact-form {
     order: 3;
   }
-}
-
-   
-    /* this will be applied on any screen smaller than 575px */
-   
-  
 }
